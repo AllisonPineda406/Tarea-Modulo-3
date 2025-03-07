@@ -1,0 +1,37 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        Biblioteca biblioteca = new Biblioteca();
+
+        // Crear algunos libros de prueba
+        Libro libro1 = new Libro("Cien años de soledad", "Gabriel García Márquez", 1967, "Realismo mágico");
+        Libro libro2 = new Libro("1984", "George Orwell", 1949, "Distopía");
+        Libro libro3 = new Libro("El alquimista", "Paulo Coelho", 1988, "Aventura");
+
+        // Agregar libros a la biblioteca
+        biblioteca.agregarLibro(libro1);
+        biblioteca.agregarLibro(libro2);
+        biblioteca.agregarLibro(libro3);
+
+        // Pruebas de operaciones
+        biblioteca.mostrarLibrosDisponibles();  // Mostrar todos los libros disponibles
+
+        System.out.println("Buscar libro por título o autor:");
+        String criterio = scanner.nextLine();
+        biblioteca.buscarLibro(criterio);  // Buscar libro por título o autor
+
+        System.out.println("Prestar un libro: ");
+        libro1.prestar();  // Prestar un libro
+
+        biblioteca.mostrarLibrosDisponibles();  // Mostrar libros disponibles después de prestar uno
+
+        System.out.println("Devolver un libro: ");
+        libro1.devolver();  // Devolver un libro
+
+        biblioteca.mostrarLibrosDisponibles();  // Mostrar libros disponibles después de devolver uno
+
+        scanner.close();
+    }
+}
